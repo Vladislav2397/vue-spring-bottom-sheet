@@ -25,11 +25,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/megaarmos/vue-spring-bottom-sheet.git"
+    "url": "https://github.com/Vladislav2397/vue-spring-bottom-sheet.git"
   },
-  "homepage": "https://vue-spring-bottom-sheet.douxcode.com/",
   "bugs": {
-    "url": "https://github.com/megaarmos/vue-spring-bottom-sheet/issues"
+    "url": "https://github.com/Vladislav2397/vue-spring-bottom-sheet/issues"
   },
   "private": false,
   "version": "2.3.0",
