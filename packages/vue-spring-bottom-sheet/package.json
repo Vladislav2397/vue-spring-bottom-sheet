@@ -31,7 +31,7 @@
     "url": "https://github.com/Vladislav2397/vue-spring-bottom-sheet/issues"
   },
   "private": false,
-  "version": "2.3.0",
+  "version": "1.0.0",
   "type": "module",
   "exports": {
     ".": {
