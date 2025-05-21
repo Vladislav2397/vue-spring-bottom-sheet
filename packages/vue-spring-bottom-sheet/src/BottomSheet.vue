@@ -24,7 +24,7 @@ const props = withDefaults(defineProps<BottomSheetProps>(), {
 
 const emit = defineEmits<{
   (e: 'opened'): void
-  (e: 'closed'): void
+  (e: 'closed', type?: 'programmly'): void
   (e: 'ready'): void
   (e: 'dragging-up'): void
   (e: 'dragging-down'): void
@@ -118,11 +118,11 @@ function handleSheetScroll(event: TouchEvent) {
 }
 
 const handleEscapeKey = (e: KeyboardEvent) => {
-  if (e.key === 'Escape') close()
+  if (e.key === 'Escape') close('programmly')
 }
 
 const backdropClick = () => {
-  if (props.canBackdropClose) close()
+  if (props.canBackdropClose) close('programmly')
 }
 
 const open = async () => {
@@ -204,7 +204,7 @@ const open = async () => {
   }
 }
 
-const close = () => {
+const close = (type?: 'programmly') => {
   showSheet.value = false
 
   if (props.blocking) {
@@ -219,7 +219,7 @@ const close = () => {
   }
 
   setTimeout(() => {
-    emit('closed')
+    emit('closed', type)
   }, props.duration)
 }
 
@@ -315,7 +315,7 @@ const handlePanEnd = () => {
   if (translateY.value === height.value) {
     translateY.value = 0
 
-    close()
+    close('programmly')
   }
 
   currentSnapPointIndex.value = closestSnapPointIndex.value
@@ -507,7 +507,9 @@ onUnmounted(() => {
   focusTrap.deactivate()
 })
 
-defineExpose({ open, close, snapToPoint })
+const exposeClose = () => close()
+
+defineExpose({ open, close: exposeClose, snapToPoint })
 </script>
 
 <template>
